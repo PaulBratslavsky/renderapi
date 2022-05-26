@@ -28,5 +28,5 @@ services:
         generateValue: true
 
 databases:
-  - name: strapi
+  - name: strapi-api-render
     plan: free # This database will expire 90 days after creation
