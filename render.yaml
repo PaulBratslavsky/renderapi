@@ -5,7 +5,7 @@ services:
     plan: free
     # Update the following line with your Strapi GitHub repo
     repo: https://github.com/PaulBratslavsky/renderapi
-    branch: main
+    branch: master
     buildCommand: yarn install && yarn build
     startCommand: yarn start
     healthCheckPath: /_health
@@ -14,10 +14,10 @@ services:
         value: ~14.19.1
       - key: NODE_ENV
         value: production
-      # - key: DATABASE_URL
-      #   fromDatabase:
-      #     name: strapi
-      #     property: connectionString
+      - key: DATABASE_URL
+        fromDatabase:
+          name: strapi-new-db
+          property: connectionString
       - key: JWT_SECRET
         generateValue: true
       - key: ADMIN_JWT_SECRET
@@ -27,6 +27,6 @@ services:
       - key: APP_KEYS
         generateValue: true
 
-# databases:
-#   - name: strapi
-#     plan: free # This database will expire 90 days after creation
+databases:
+  - name: strapi-new-db
+    plan: free # This database will expire 90 days after creation
